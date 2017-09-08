@@ -13,8 +13,8 @@ spring:
       ddl-auto: none    
   datasource:                           # 指定数据源
     url: jdbc:mysql://47.92.82.249:3306/appv2?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
-    username:
-    password:
+    username: xuxue
+    password: Candy520025ydnaC
     driver-class-name: com.mysql.jdbc.Driver
     tomcat:
       init-s-q-l: set names utf8mb4

@@ -99,10 +99,10 @@ public class WebController {
                     predicateList.add(criteriaBuilder.equal(root.get("openId").as(String.class), openId));
                 }
                 if (pNickName != null && !pNickName.isEmpty()) {
-                    predicateList.add(criteriaBuilder.equal(root.get("nickNameP").as(String.class), pNickName));
+                    predicateList.add(criteriaBuilder.like(root.get("nickNameP").as(String.class), "%"+pNickName+"%"));
                 }
                 if (nickName != null && !nickName.isEmpty()) {
-                    predicateList.add(criteriaBuilder.equal(root.get("nickName").as(String.class), nickName));
+                    predicateList.add(criteriaBuilder.like(root.get("nickName").as(String.class), "%"+nickName+"%"));
                 }
                 if (type != null && !type.isEmpty()) {
                     predicateList.add(criteriaBuilder.equal(root.get("type").as(Integer.class), Integer.parseInt(type)));
@@ -170,10 +170,10 @@ public class WebController {
                     predicateList.add(criteriaBuilder.equal(root.get("tOpenId").as(String.class), openId));
                 }
                 if (pNickName != null && !pNickName.isEmpty()) {
-                    predicateList.add(criteriaBuilder.equal(root.get("tNickNameP").as(String.class), pNickName));
+                    predicateList.add(criteriaBuilder.like(root.get("tNickNameP").as(String.class), "%"+pNickName+"%"));
                 }
                 if (nickName != null && !nickName.isEmpty()) {
-                    predicateList.add(criteriaBuilder.equal(root.get("tNickName").as(String.class), nickName));
+                    predicateList.add(criteriaBuilder.like(root.get("tNickName").as(String.class), "%"+nickName+"%"));
                 }
                 if (classType != null && !classType.isEmpty()) {
                     predicateList.add(criteriaBuilder.equal(root.get("tClassType").as(String.class), classType));
@@ -237,10 +237,10 @@ public class WebController {
                     }
                 }
                 if (pNickName != null && !pNickName.isEmpty()) {
-                    predicateList.add(criteriaBuilder.equal(root.get("tNickNameP").as(String.class), pNickName));
+                    predicateList.add(criteriaBuilder.like(root.get("tNickNameP").as(String.class), "%"+pNickName+"%"));
                 }
                 if (nickName != null && !nickName.isEmpty()) {
-                    predicateList.add(criteriaBuilder.equal(root.get("tNickName").as(String.class), nickName));
+                    predicateList.add(criteriaBuilder.like(root.get("tNickName").as(String.class), "%"+nickName+"%"));
                 }
                 if (classType != null && !classType.isEmpty()) {
                     predicateList.add(criteriaBuilder.equal(root.get("classType").as(String.class), classType));
@@ -314,10 +314,10 @@ public class WebController {
                     }
                 }
                 if (pNickName != null && !pNickName.isEmpty()) {
-                    predicateList.add(criteriaBuilder.equal(root.get("tNickNameP").as(String.class), pNickName));
+                    predicateList.add(criteriaBuilder.like(root.get("tNickNameP").as(String.class), "%"+pNickName+"%"));
                 }
                 if (nickName != null && !nickName.isEmpty()) {
-                    predicateList.add(criteriaBuilder.equal(root.get("tNickName").as(String.class), nickName));
+                    predicateList.add(criteriaBuilder.like(root.get("tNickName").as(String.class), "%"+nickName+"%"));
                 }
                 if (classType != null && !classType.isEmpty()) {
                     predicateList.add(criteriaBuilder.equal(root.get("sClassType").as(String.class), classType));
