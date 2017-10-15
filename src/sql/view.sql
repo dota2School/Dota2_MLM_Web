@@ -89,6 +89,7 @@ CREATE view view_t_sign_count as
     t_nick_name as t_nick_name,
     t_nick_name_p as t_nick_name_p,
     t_teach_time as t_teach_time,
+    t_teach_date as t_teach_date,
     count(*) as sign_times,
     sum(t_teach_time_int) as sign_long,
     t_updatetime as t_updatetime,
@@ -100,6 +101,7 @@ CREATE view view_t_sign_ack_count as select
   t_open_id as t_open_id,
   s_type as s_type,
   t_teach_time as t_teach_time,
+  t_teach_date as t_teach_date,
   count(t_open_id) as times
   from view_all where t_open_id != s_open_id AND s_open_id is not null GROUP BY t_open_id;
 
@@ -113,8 +115,9 @@ CREATE view view_t_count as select
     view_t_sign_count.t_updatetime as updatetime,
 		view_t_sign_count.t_class_type as t_class_type,
 		view_t_sign_count.t_class_name as t_class_name,
-		IFNULL(view_t_sign_ack_count.times,0) as ack_times
-
+		IFNULL(view_t_sign_ack_count.times,0) as ack_times,
+    view_t_sign_count.t_teach_date as sign_t_teach_date,
+    view_t_sign_ack_count.t_teach_date as ack_t_teach_date
  from view_t_sign_count LEFT JOIN view_t_sign_ack_count on view_t_sign_count.open_id = view_t_sign_ack_count.t_open_id;
 
 

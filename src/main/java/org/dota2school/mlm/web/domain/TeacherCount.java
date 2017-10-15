@@ -48,6 +48,12 @@ public class TeacherCount {
     @Column(name="ack_times")
     private int ackTimes;
 
+    @Column(name="sign_t_teach_date")
+    private Date signTeachDate;
+
+    @Column(name="ack_t_teach_date")
+    private Date ackTeachDate;
+
     @OneToMany(fetch = FetchType.LAZY,targetEntity = AllSign.class)
     @JoinColumn(name = "t_open_id", referencedColumnName = "open_id", insertable = false, updatable = false)
     @NotFound(action = NotFoundAction.IGNORE)
@@ -155,5 +161,21 @@ public class TeacherCount {
                 ", ackTimes=" + ackTimes +
                 ", signData=" + signData +
                 '}';
+    }
+
+    public Date getSignTeachDate() {
+        return signTeachDate;
+    }
+
+    public void setSignTeachDate(Date signTeachDate) {
+        this.signTeachDate = signTeachDate;
+    }
+
+    public Date getAckTeachDate() {
+        return ackTeachDate;
+    }
+
+    public void setAckTeachDate(Date ackTeachDate) {
+        this.ackTeachDate = ackTeachDate;
     }
 }
