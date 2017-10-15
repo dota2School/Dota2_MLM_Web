@@ -64,7 +64,6 @@ CREATE VIEW view_all as
 		view_sign_user.motton as t_motton,
 		view_sign_user.rank_score as t_rank_score,
 		view_sign_user.class_content as t_class_content,
-
 		view_signstudent_user.open_id as s_open_id,
 		view_signstudent_user.status as s_status,
 		view_signstudent_user.evaluate as s_evaluate,
@@ -80,7 +79,7 @@ CREATE VIEW view_all as
 		view_signstudent_user.class_type as s_class_type,
 		view_signstudent_user.class_name as s_class_name,
 		view_signstudent_user.nick_name_p as s_nick_name_p
-   from view_sign_user left join view_signstudent_user ON view_sign_user.sign_id = view_signstudent_user.sign_id where view_signstudent_user.open_id !=view_sign_user.open_id;
+   from view_sign_user left join view_signstudent_user ON view_sign_user.sign_id = view_signstudent_user.sign_id and view_signstudent_user.open_id !=view_sign_user.open_id;
 
 
 CREATE view view_t_sign_count as
@@ -89,6 +88,7 @@ CREATE view view_t_sign_count as
     t_avatar_url as t_avatar_url,
     t_nick_name as t_nick_name,
     t_nick_name_p as t_nick_name_p,
+    t_teach_time as t_teach_time,
     count(*) as sign_times,
     sum(t_teach_time_int) as sign_long,
     t_updatetime as t_updatetime,
@@ -99,8 +99,9 @@ CREATE view view_t_sign_count as
 CREATE view view_t_sign_ack_count as select
   t_open_id as t_open_id,
   s_type as s_type,
-  count(*) as times
-  from view_all where t_open_id != s_open_id AND s_open_id !=-1 GROUP BY t_open_id;
+  t_teach_time as t_teach_time,
+  count(t_open_id) as times
+  from view_all where t_open_id != s_open_id AND s_open_id is not null GROUP BY t_open_id;
 
 CREATE view view_t_count as select
     view_t_sign_count.open_id as open_id,
@@ -125,7 +126,7 @@ CREATE VIEW view_s_sign_count as
     s_avatar_url as s_avatar_url,
 		s_class_type as s_class_type,
 		s_class_name as s_class_name,
-		t_teach_time as t_teach_time,
+		t_teach_date as t_teach_date,
     t_open_id as t_open_id,
 		s_updatetime as updatetime,
     sum(t_teach_time_int) as s_sign_long,

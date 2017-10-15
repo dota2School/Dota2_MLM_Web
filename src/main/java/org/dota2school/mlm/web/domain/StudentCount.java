@@ -22,8 +22,8 @@ public class StudentCount {
     @Column(name="updatetime")
     private Date updatetime;
 
-    @Column(name="t_teach_time")
-    private Date teachTime;
+    @Column(name="t_teach_date")
+    private Date teachDate;
 
     @Column(name="s_nick_name")
     private String sNickName;
@@ -147,11 +147,12 @@ public class StudentCount {
         this.signData = signData;
     }
 
-    public Date getTeachTime() {
-        return teachTime;
+
+    public Date getTeachDate() {
+        return teachDate;
     }
 
-    public void setTeachTime(Date teachTime) {
-        this.teachTime = teachTime;
+    public void setTeachDate(Date teachDate) {
+        this.teachDate = teachDate;
     }
 }
