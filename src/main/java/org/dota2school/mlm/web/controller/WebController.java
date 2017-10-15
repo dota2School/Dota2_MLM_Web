@@ -299,7 +299,7 @@ public class WebController {
                     try{
                         Date start = formate.get().parse(startTime);
                         predicateList.add(criteriaBuilder
-                                .greaterThan(root.get("updatetime").as(Date.class), start));
+                                .greaterThan(root.get("teachTime").as(Date.class), start));
                     }catch (ParseException ex){
                         LOG.warn("Failed parse  time  ");
                     }
@@ -308,7 +308,7 @@ public class WebController {
                     try{
                         Date end = formate.get().parse(endTime);
                         predicateList.add(criteriaBuilder
-                                .lessThan(root.get("updatetime").as(Date.class), end));
+                                .lessThan(root.get("teachTime").as(Date.class), end));
                     }catch (ParseException ex){
                         LOG.warn("Failed  parse time ");
                     }

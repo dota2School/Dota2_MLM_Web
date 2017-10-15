@@ -22,6 +22,9 @@ public class StudentCount {
     @Column(name="updatetime")
     private Date updatetime;
 
+    @Column(name="t_teach_time")
+    private Date teachTime;
+
     @Column(name="s_nick_name")
     private String sNickName;
 
@@ -45,6 +48,8 @@ public class StudentCount {
 
     @Column(name="s_class_name")
     private String sClassName;
+
+
 
 
 
@@ -140,5 +145,13 @@ public class StudentCount {
 
     public void setSignData(List<AllSign> signData) {
         this.signData = signData;
+    }
+
+    public Date getTeachTime() {
+        return teachTime;
+    }
+
+    public void setTeachTime(Date teachTime) {
+        this.teachTime = teachTime;
     }
 }

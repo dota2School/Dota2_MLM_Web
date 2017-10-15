@@ -125,6 +125,7 @@ CREATE VIEW view_s_sign_count as
     s_avatar_url as s_avatar_url,
 		s_class_type as s_class_type,
 		s_class_name as s_class_name,
+		t_teach_time as t_teach_time,
     t_open_id as t_open_id,
 		s_updatetime as updatetime,
     sum(t_teach_time_int) as s_sign_long,
